@@ -29,4 +29,18 @@ public class PblBinPack extends PblDec {
 		return this.cap;
 	}
 	
+	public boolean aUneSolution() {
+		CertificatBinPack certificat = new CertificatBinPack(this);
+		
+		while(!certificat.correct() && !certificat.estDernier()) {
+			certificat.suivant();
+		}
+		
+		if(certificat.correct()) {
+			certificat.affiche();
+		}
+		
+		return certificat.correct();
+	}
+	
 }

@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 
-public class Main {
+public class BinPack {
 
 	/**
 	 * @param args
@@ -80,19 +80,12 @@ public class Main {
 	}
 	
 	private static void exhaustifMode(PblBinPack pb) {
-		CertificatBinPack certificat = new CertificatBinPack(pb);
-		
-		while(!certificat.correct() && !certificat.estDernier()) {
-			certificat.suivant();
-		}
-		
-		if(certificat.correct()) {
-			certificat.affiche();
-			System.out.println("Le certificat est correct.\n");
+		if(pb.aUneSolution()) {
+			System.out.println("True.\n");
 		}
 		else {
 			System.out.println();
-			System.out.println("Le certificat n'est pas correct.\n");
+			System.out.println("False.\n");
 		}
 	}
 
@@ -103,11 +96,11 @@ public class Main {
 		
 		if(certificat.correct()) {
 			certificat.affiche();
-			System.out.println("Le certificat est correct.\n");
+			System.out.println("True.\n");
 		}
 		else {
 			System.out.println();
-			System.out.println("Le certificat n'est pas correct.\n");
+			System.out.println("False.\n");
 		}
 	}
 
@@ -127,7 +120,7 @@ public class Main {
 	public static void error(int type) {
 		if(type == 0) {
 			System.out.println();
-			System.out.println("java Main <files> <mode> avec comme modes (au moins) -v (verif), -nd (non déterministe), -exh (exhaustif)\n");
+			System.out.println("java BinPack <files> <mode> avec comme modes (au moins) -v (verif), -nd (non déterministe), -exh (exhaustif)\n");
 		}
 		else if(type == 1) {
 			System.out.println();
